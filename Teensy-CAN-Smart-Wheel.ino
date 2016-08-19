@@ -28,6 +28,7 @@ int currentLapTime;
 int deltaLapTime; // compared to ???????
 // Used by GUIHandle and ADAFRUIT TFT
 int displayedScreen = 0;  // used in HUItoGUI, updated in Screen
+int activeAlert = 0;
 
 int prevMillis;
 

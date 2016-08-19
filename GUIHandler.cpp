@@ -1,9 +1,7 @@
-#include <Arduino.h>
-
 #include "GUIHandler.h"
 #include "GlobalVariables.h"
 #include "AdafruitTFT.h"
-//#include "AdafruitLEDBar.h"
+#include "AdafruitLEDBar.h"
 
 int numberOfScreens = 3;
 int screenOrder[] = {speedScreen, lapTimeScreen, carStatsScreen};
@@ -18,13 +16,12 @@ void GUIHandler() {
 
 void GUIHandlerSetup() {
   AdafruitTFTSetup();
-  Serial.begin(9600);
-//  AdafruitLEDBarSetup();
+  AdafruitLEDBarSetup();
 }
 
 void GUIHandlerUpdate() {
   AdafruitTFTUpdate();
-//  AdafruitLEDBarUpdate();
+  AdafruitLEDBarUpdate();
 }
 
 void GUIHandlerDisplayNewScreen(int commandType) {
@@ -39,11 +36,6 @@ void GUIHandlerDisplayNewScreen(int commandType) {
 
   }
 }
-
-
-/*
-  Following are only called internally
- */
 
 void GUIHandlerDisplayDownScreen() {
   // For screenOrder array
