@@ -5,6 +5,8 @@
 
 #include "GlobalVariables.h"
 
+#include <Arduino.h>
+
 // Gear Shift Point Preferences
 // Shift point revs 0=1st 1=2nd etc
 //int shiftPoint[] = {6000, 6000, 6000, 6000, 6000, 6000};
@@ -12,6 +14,7 @@ int minDisplayShiftPoint[] = {0, 0, 0, 0, 0, 0};
 int revsToShiftPoint = 0;
 extern int carRPM;
 extern int gear;
+extern int activeAlert;
 int revsToShiftPointPrev = 0;
 
 Adafruit_24bargraph bar = Adafruit_24bargraph();
@@ -21,8 +24,15 @@ void AdafruitLEDBar() {
 }
 
 void AdafruitLEDBarSetup() {
-  bar.begin(0x70);
-  
+  Serial.begin(9600);
+  Wire.begin ();
+  Wire.beginTransmission(70);
+  if (Wire.endTransmission() == 0) {
+    bar.begin(0x70);
+    Serial.println("LED Bar connected sucessfully!");
+  } else {
+    Serial.println("LED Bar not connected!");
+  }
 }
 
 void AdafruitLEDBarUpdate() {
@@ -89,4 +99,4 @@ void displayAlert(int alert) {
 /*
   setBrightness(brightness) 0-15
   blinkRate(rate) 0 off, 1-3 different rates
- */
+*/

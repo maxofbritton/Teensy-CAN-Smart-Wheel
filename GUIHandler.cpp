@@ -6,12 +6,12 @@
 int numberOfScreens = 3;
 int screenOrder[] = {speedScreen, lapTimeScreen, carStatsScreen};
 
-
+#include <Arduino.h>;
 
 extern int displayedScreen;
 
 void GUIHandler() {
-  
+  Serial.begin(9600);
 }
 
 void GUIHandlerSetup() {

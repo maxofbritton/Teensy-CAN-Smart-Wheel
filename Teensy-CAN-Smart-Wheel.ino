@@ -1,7 +1,7 @@
 #include <Arduino.h>
 
 #include "GUIHandler.h"
-//#include "CANHandler.h"
+#include "CANHandler.h"
 //#include "ButtonHandler.h"
 #include "GlobalVariables.h"
 
@@ -34,25 +34,20 @@ int prevMillis;
 
 void setup() {  
   Serial.begin(9600);
+  
+  Serial.println("WHAT???");
   GUIHandlerSetup();
-//  CANHandlerSetup();
+  CANHandlerSetup();
 //  ButtonHandlerSetup();
 }
 
 void loop() {
+  delay(10);
+//  Serial.println("hmm");
   // Call functions to update hardware
   GUIHandlerUpdate();
-//  CANHandlerUpdate();
+  CANHandlerUpdate();
 //  ButtonHandlerUpdate();
-  carRPM +=10;
-  if (carRPM >6000) {
-    carRPM = 0;
-  }
-  carSpeed++;
-  if (carSpeed > 300) {
-    carSpeed = 0;
-//  GUIHandlerDisplaySpecifiedScreen(carStatsScreen);
-  }
 
   
   int currentMillis = millis();
