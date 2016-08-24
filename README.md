@@ -14,13 +14,18 @@ ___
 ### Progress
 
 ##### Upcoming Tasks
-- Add basic CAN Functionality
-- Add LED Bar Functionality
+- Support OBD II CAN messages
+- switch CAN data from Global Variables to a global Struct
+- Add button support (four function buttons)
 
 ##### Completed Tasks
 - GUI Handler
 - TFT Screen Functionality
+- Basic CAN Functionality
+- LED Bar functionality
+
 ___
+
 ### Hardware and Libraries
  - Teensy 3.2/3.1
  - [Adafruit 2.8" TFT ILI9341](https://www.adafruit.com/product/1770) using [Teensy-Optimized ILI9341 TFT Library](https://github.com/PaulStoffregen/ILI9341_t3)
